@@ -1,10 +1,11 @@
 # Tab Suspender Pro - Save Memory & Speed Up Chrome
 
-[![Chrome Web Store](https://img.shields.io/badge/Chrome-Web%20Store-blue?logo=google-chrome)](https://chrome.google.com/webstore)
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/zovo-tab-suspender)](https://chrome.google.com/webstore/detail/zovo-tab-suspender)
 [![Version](https://img.shields.io/badge/version-1.0.19-green.svg)](https://github.com/theluckystrike/zovo-tab-suspender-public)
-[![Users](https://img.shields.io/badge/users-66-orange.svg)](https://github.com/theluckystrike/zovo-tab-suspender-public)
-[![Rating](https://img.shields.io/badge/rating-★★★★★-yellow.svg)](https://github.com/theluckystrike/zovo-tab-suspender-public)
 [![License](https://img.shields.io/badge/license-BSL%201.1-blue.svg)](https://mariadb.com/bsl11/)
+[![GitHub Stars](https://img.shields.io/github/stars/theluckystrike/zovo-tab-suspender-public?style=social)](https://github.com/theluckystrike/zovo-tab-suspender-public)
+[![Discord](https://img.shields.io/badge/Discord-Zovo-blueviolet.svg?logo=discord)](https://discord.gg/zovo)
+[![Website](https://img.shields.io/badge/Website-zovo.one-blue)](https://zovo.one)
 
 > Automatically suspend inactive tabs to free memory and speed up Chrome.
 
@@ -74,6 +75,46 @@ Part of the [Zovo](https://zovo.one) developer tools family.
 
 - Report issues on [GitHub Issues](https://github.com/theluckystrike/zovo-tab-suspender-public/issues)
 - Contact: support@zovo.one
+
+## Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. **Fork** the repository
+2. **Create** a feature branch: `git checkout -b feature/suspender-improvement`
+3. **Make** your changes
+4. **Test** locally by loading unpacked
+5. **Commit** your changes: `git commit -m 'Add new feature'`
+6. **Push** to the branch: `git push origin feature/suspender-improvement`
+7. **Submit** a Pull Request
+
+### Development Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/theluckystrike/zovo-tab-suspender-public.git
+cd zovo-tab-suspender-public
+
+# Make changes to the source files
+# Then load in Chrome: chrome://extensions > Load unpacked
+```
+
+## See Also
+
+### Related Zovo Repositories
+
+- [zovo-permissions-scanner](https://github.com/theluckystrike/zovo-permissions-scanner) - Privacy scanner for Chrome extensions
+- [zovo-extension-template](https://github.com/theluckystrike/zovo-extension-template) - Boilerplate for building privacy-first Chrome extensions
+- [zovo-types-webext](https://github.com/theluckystrike/zovo-types-webext) - TypeScript type definitions
+- [zovo-chrome-extensions](https://github.com/theluckystrike/zovo-chrome-extensions) - Collection of Zovo extensions
+
+### Other Zovo Chrome Extensions
+
+- [Zovo Focus](https://chrome.google.com/webstore/detail/zovo-focus) - Block distractions
+- [Zovo Session Manager](https://chrome.google.com/webstore/detail/zovo-session-manager) - Save and restore tabs
+- [Zovo Permissions Scanner](https://chrome.google.com/webstore/detail/zovo-permissions-scanner) - Check extension privacy grades
+
+Visit [zovo.one](https://zovo.one) for more information.
 
 ---
 
