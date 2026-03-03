@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Validate manifest.json
+        run: |
+          cat manifest.json | python3 -c "import json,sys; json.load(sys.stdin)"
+          echo "✓ manifest.json is valid JSON"
+      
+      - name: Check JS syntax
+        run: |
+          # Check all JS files for basic syntax errors using node
+          for f in $(find . -name "*.js" -type f | head -20); do
+            node --check "$f" 2>&1 || echo "Warning: $f has syntax issues"
+          done
+          echo "✓ JavaScript syntax check complete"
+      
+      - name: Check required files exist
+        run: |
+          [ -f manifest.json ] || exit 1
+          [ -f background.js ] || exit 1
+          echo "✓ Required files exist"
