@@ -1,121 +1,60 @@
-# Tab Suspender Pro - Save Memory & Speed Up Chrome
+# Tab Suspender Pro — The Great Suspender Replacement
 
-[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/zovo-tab-suspender)](https://chrome.google.com/webstore/detail/zovo-tab-suspender)
-[![Version](https://img.shields.io/badge/version-1.0.19-green.svg)](https://github.com/theluckystrike/zovo-tab-suspender-public)
+Auto-suspend inactive Chrome tabs to reclaim memory. No tracking. No limits. Free and open source.
+
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/ofgncemnlblfnocjbojdhamacfffcpnm)](https://chromewebstore.google.com/detail/tab-suspender-pro-save-me/ofgncemnlblfnocjbojdhamacfffcpnm)
 [![License](https://img.shields.io/badge/license-BSL%201.1-blue.svg)](https://mariadb.com/bsl11/)
 [![GitHub Stars](https://img.shields.io/github/stars/theluckystrike/zovo-tab-suspender-public?style=social)](https://github.com/theluckystrike/zovo-tab-suspender-public)
-[![Discord](https://img.shields.io/badge/Discord-Zovo-blueviolet.svg?logo=discord)](https://discord.gg/zovo)
-[![Website](https://img.shields.io/badge/Website-zovo.one-blue)](https://zovo.one)
 
-> Automatically suspend inactive tabs to free memory and speed up Chrome.
+## Why This Exists
 
-**Tab Suspender Pro** is a Chrome extension that intelligently suspends inactive tabs to reduce memory usage and improve browser performance. Keep hundreds of tabs open without slowing down your system.
+The Great Suspender was removed from the Chrome Web Store for containing malware. Tab Suspender Pro is a clean, privacy-first replacement built from scratch on Manifest V3.
 
-## Features
+## Key Features
 
-- **Automatic Tab Suspension** - Suspend inactive tabs after a configurable idle period to free up memory
-- **Domain Whitelist** - Define domains that should never be suspended (e.g., streaming sites, work apps)
-- **Configurable Idle Timer** - Set custom timeout periods (5 min, 15 min, 30 min, 1 hour, etc.)
-- **Visual Indicator** - Easily identify suspended tabs with a clear visual marker
-- **One-Click Restore** - Click any suspended tab to instantly restore it
-- **Smart Exclusions** - Automatically excludes pinned tabs, tabs playing audio, and the active tab
+- **Auto-suspend after configurable timeout** — 5 min, 15 min, 30 min, 1 hour, or custom
+- **Whitelist domains** — keep Gmail, Spotify, or any site always active
+- **Suspend / unsuspend all tabs** — one click or keyboard shortcut
+- **Memory savings indicator** — see exactly how much RAM you are reclaiming
+- **Smart exclusions** — pinned tabs, tabs playing audio, and the active tab are never suspended
+- **Keyboard shortcuts** — `Alt+S` suspend current, `Alt+Shift+S` suspend others, `Alt+R` restore all
 
-## How It Works
+## Install
 
-1. Set your preferred idle timeout in the settings
-2. Add any domains you want to whitelist (optional)
-3. The extension automatically suspends tabs that have been inactive for the specified time
-4. Click a suspended tab to restore it instantly
-5. Monitor memory savings in the extension popup
+**[Get it from the Chrome Web Store](https://chromewebstore.google.com/detail/tab-suspender-pro-save-me/ofgncemnlblfnocjbojdhamacfffcpnm)**
 
-## Permissions Explained
+Or load from source:
 
-| Permission | Why |
-|------------|-----|
-| `tabs` | Monitor tab activity and suspend/restore tabs |
-| `storage` | Save your settings and whitelist locally |
-| `alarms` | Check for idle tabs periodically |
-| `webNavigation` | Detect when tabs navigate to new pages |
+```bash
+git clone https://github.com/theluckystrike/zovo-tab-suspender-public.git
+```
+
+1. Open `chrome://extensions`
+2. Enable **Developer mode**
+3. Click **Load unpacked** and select the cloned folder
 
 ## Privacy
 
-**Tab Suspender Pro collects zero data.**
+Tab Suspender Pro collects **zero data**. No analytics, no telemetry, no external requests. All settings are stored locally on your device.
 
-- Does NOT send any data to external servers
-- Does NOT track your browsing activity
-- Does NOT collect analytics or telemetry
-- All tab management happens locally in your browser
-- Your settings are stored only on your device
+## Permissions
 
-## License
-
-This repository contains the community edition of Tab Suspender Pro, licensed under the **Business Source License 1.1 (BSL 1.1)**.
-
-**What this means:**
-- Free to use for personal and non-production purposes
-- Source code is fully available for inspection
-- Commercial use requires a separate license
-
-See the full license text at: https://mariadb.com/bsl11/
-
-## Installation
-
-Install from the [Chrome Web Store](https://chrome.google.com/webstore) or load unpacked from source:
-
-1. Clone this repository
-2. Open `chrome://extensions` in Chrome
-3. Enable "Developer mode"
-4. Click "Load unpacked" and select the extension folder
-
-## Built by Zovo
-
-Part of the [Zovo](https://zovo.one) developer tools family.
-
-## Support
-
-- Report issues on [GitHub Issues](https://github.com/theluckystrike/zovo-tab-suspender-public/issues)
-- Contact: support@zovo.one
+| Permission | Reason |
+|---|---|
+| `tabs` | Monitor activity and suspend/restore tabs |
+| `storage` | Save settings and whitelist locally |
+| `alarms` | Periodically check for idle tabs |
+| `scripting` | Inject the suspend/restore UI into tabs |
 
 ## Contributing
 
-Contributions are welcome! Please follow these steps:
+1. Fork the repo
+2. Create a feature branch
+3. Test locally via `chrome://extensions` > Load unpacked
+4. Open a pull request
 
-1. **Fork** the repository
-2. **Create** a feature branch: `git checkout -b feature/suspender-improvement`
-3. **Make** your changes
-4. **Test** locally by loading unpacked
-5. **Commit** your changes: `git commit -m 'Add new feature'`
-6. **Push** to the branch: `git push origin feature/suspender-improvement`
-7. **Submit** a Pull Request
+Issues and feature requests: [GitHub Issues](https://github.com/theluckystrike/zovo-tab-suspender-public/issues)
 
-### Development Setup
+## License
 
-```bash
-# Clone the repository
-git clone https://github.com/theluckystrike/zovo-tab-suspender-public.git
-cd zovo-tab-suspender-public
-
-# Make changes to the source files
-# Then load in Chrome: chrome://extensions > Load unpacked
-```
-
-## See Also
-
-### Related Zovo Repositories
-
-- [zovo-permissions-scanner](https://github.com/theluckystrike/zovo-permissions-scanner) - Privacy scanner for Chrome extensions
-- [zovo-extension-template](https://github.com/theluckystrike/zovo-extension-template) - Boilerplate for building privacy-first Chrome extensions
-- [zovo-types-webext](https://github.com/theluckystrike/zovo-types-webext) - TypeScript type definitions
-- [zovo-chrome-extensions](https://github.com/theluckystrike/zovo-chrome-extensions) - Collection of Zovo extensions
-
-### Other Zovo Chrome Extensions
-
-- [Zovo Focus](https://chrome.google.com/webstore/detail/zovo-focus) - Block distractions
-- [Zovo Session Manager](https://chrome.google.com/webstore/detail/zovo-session-manager) - Save and restore tabs
-- [Zovo Permissions Scanner](https://chrome.google.com/webstore/detail/zovo-permissions-scanner) - Check extension privacy grades
-
-Visit [zovo.one](https://zovo.one) for more information.
-
----
-
-Made with care by the Zovo team.
+[Business Source License 1.1](https://mariadb.com/bsl11/) — free for personal and non-production use. Commercial use requires a separate license.
