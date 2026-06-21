@@ -87,7 +87,7 @@ interface StatsMetadata {
 // TASK 3: Exclusion Feedback
 // ============================================
 
-// NEW KEY: Store last "Suspend All" action results
+// NEW KEY: Store last "Suspend Other Tabs" action results
 // Agent 3 owns this key
 interface LastSuspendAction {
   timestamp: number;
@@ -491,7 +491,7 @@ Each feature MUST pass these test scenarios:
 - [ ] No data loss during sync
 
 ### Task 3: Exclusion Feedback Tests
-- [ ] Toast appears after "Suspend All"
+- [ ] Toast appears after "Suspend Other Tabs"
 - [ ] Correct count of suspended tabs
 - [ ] Correct breakdown of exclusion reasons
 - [ ] Details expandable/collapsible

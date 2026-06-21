@@ -1,8 +1,8 @@
-# Tab Suspender Pro - Architecture Documentation
+# Tab Suspender - Architecture Documentation
 
 ## Overview
 
-Tab Suspender Pro is a Chrome Extension (Manifest V3) that automatically suspends inactive tabs to save memory. This document outlines the complete architecture for agents implementing new features.
+Tab Suspender is a Chrome Extension (Manifest V3) that automatically suspends inactive tabs to save memory. This document outlines the complete architecture for agents implementing new features.
 
 ---
 
@@ -124,15 +124,8 @@ Used for data that should persist locally only.
   },
 
   // Installation tracking
-  "installDate": 1706800000000,   // Timestamp of first install
+  "installDate": 1706800000000   // Timestamp of first install
 
-  // Focus Mode sessions
-  "focusSessions": [              // Focus mode session history
-    {
-      "timestamp": 1706900000000,
-      "duration": 3600000         // Session duration in ms
-    }
-  ]
 }
 ```
 
@@ -379,4 +372,4 @@ Need to collect exclusion reasons during the suspension loop.
 
 1. All data is stored locally using Chrome's storage APIs
 2. No user tracking or data collection
-3. Community Edition - all features unlocked for free
+3. All features are free with no in-app gates or whitelist caps

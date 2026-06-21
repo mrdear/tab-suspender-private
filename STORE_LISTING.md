@@ -1,4 +1,4 @@
-# Tab Suspender Community Edition - Chrome Web Store Listing
+# Tab Suspender - Chrome Web Store Listing
 
 ## TITLE (45 characters max)
 ```
@@ -19,7 +19,7 @@ Too many tabs open? Your browser is eating 4GB+ of RAM right now. Tab Suspender 
 
 WHY THIS EXISTS
 
-The Great Suspender was removed from Chrome Web Store for containing malware. Millions of users lost their favorite extension overnight. Tab Suspender Community Edition was built as the trustworthy replacement with the same workflow and same shortcuts but zero compromise on privacy.
+The Great Suspender was removed from Chrome Web Store for containing malware. Millions of users lost their favorite extension overnight. Tab Suspender was built as the trustworthy replacement with the same workflow and same shortcuts but zero compromise on privacy.
 
 HOW IT WORKS
 
@@ -45,7 +45,7 @@ Alt+W whitelists the current site
 
 ALL FEATURES INCLUDED
 
-Focus Mode suspends everything except your current tab. One click for deep work sessions.
+Suspend Other Tabs keeps your current tab open and pauses the rest of your eligible tabs.
 
 Memory Stats track how much RAM you have saved over time.
 
@@ -77,7 +77,7 @@ We never access your browsing history. We never send data to any server.
 
 COMPLETELY FREE
 
-All features are free with no limits. This is a community edition with everything unlocked.
+All features are free with no limits. This edition includes the full feature set.
 
 Open source and community-maintained.
 ```
@@ -113,7 +113,7 @@ Long tail:
 1. Hero - RAM savings before/after - "Save 80% Memory Instantly"
 2. Feature - Suspended tabs visual - "Inactive Tabs Suspend Automatically"
 3. Settings - Timeout and whitelist - "Customize Everything"
-4. Focus Mode - Single active tab - "One Click Deep Work Mode"
+4. Suspend Other Tabs - Keep current tab active - "Clear the Background Noise"
 5. Trust - Privacy messaging - "Open Source and Free Forever and Zero Tracking"
 
 
@@ -125,6 +125,6 @@ Free Forever
 No Tracking"
 
 Marquee (1400x560):
-"Tab Suspender Community Edition
+"Tab Suspender
 Automatically suspend inactive tabs and reclaim your memory
 Free unlimited with no tracking"

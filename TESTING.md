@@ -1,6 +1,6 @@
-# Tab Suspender Pro - Testing Checklist
+# Tab Suspender - Testing Checklist
 
-This document provides a comprehensive test checklist for verifying the functionality of Tab Suspender Pro extension.
+This document provides a comprehensive test checklist for verifying the functionality of Tab Suspender extension.
 
 ## Pre-requisites
 
@@ -51,7 +51,7 @@ This document provides a comprehensive test checklist for verifying the function
 
 ### Whitelist Behavior
 - [ ] Whitelisted tabs show "Whitelisted" status in exclusion feedback
-- [ ] Whitelisted tabs are NOT suspended during "Suspend All"
+- [ ] Whitelisted tabs are NOT suspended during "Suspend Other Tabs"
 - [ ] Whitelisted tabs are NOT auto-suspended after timeout
 - [ ] Subdomains of whitelisted domains are also protected (e.g., mail.google.com when google.com is whitelisted)
 
@@ -60,39 +60,22 @@ This document provides a comprehensive test checklist for verifying the function
 - [ ] Removed sites become suspendable again
 - [ ] Background config reloads after whitelist changes
 
-### Free Tier Limits
-- [ ] Free users limited to 5 whitelisted domains
-- [ ] Limit modal appears when trying to add 6th domain
-- [ ] Pro users have unlimited whitelist entries
+### Unlimited Whitelist
+- [ ] Users can add more than 5 whitelisted domains
+- [ ] Additional domains save without a gating modal
+- [ ] All whitelist entries are saved and enforced
 
 ---
 
-## 3. Focus Mode Activation/Exit
+## 3. Primary Suspension Action
 
-### Activation
-- [ ] Focus Mode button visible in popup
-- [ ] Clicking "Enter Focus Mode" suspends all inactive tabs
-- [ ] Active tab is NOT suspended during Focus Mode
-- [ ] Focus Mode indicator appears in popup
+### Suspend Other Tabs
+- [ ] "Suspend Other Tabs" button visible in popup
+- [ ] Clicking it suspends eligible inactive tabs
+- [ ] Active tab is NOT suspended
+- [ ] Whitelisted and protected tabs are skipped
 - [ ] Suspended tab count displayed correctly
-- [ ] Focus Mode session timestamp is recorded
-
-### During Focus Mode
-- [ ] Focus Mode banner visible in popup
-- [ ] Current active tab info displayed
-- [ ] "Exit Focus" button is accessible
-- [ ] Navigation to other tabs works normally
-
-### Exit Focus Mode
-- [ ] "Exit Focus" button restores previously suspended tabs
-- [ ] Focus session is logged to storage
-- [ ] UI returns to normal state
-- [ ] Stats are updated with session data
-
-### Pro/Free Limitations
-- [ ] Free users have limited Focus Mode trials
-- [ ] Trial counter decrements correctly
-- [ ] Pro users have unlimited Focus Mode access
+- [ ] UI returns to normal state after the operation
 
 ---
 
@@ -138,7 +121,7 @@ This document provides a comprehensive test checklist for verifying the function
 
 ### Manual Suspension
 - [ ] Individual tab "Suspend" button works in popup
-- [ ] "Suspend All Tabs" button suspends all eligible tabs
+- [ ] "Suspend Other Tabs" button suspends all eligible tabs except active tabs
 - [ ] Suspended tabs show custom suspended.html page
 - [ ] Original URL, title, and favicon preserved in suspended page
 - [ ] Badge count updates to show suspended tab count
@@ -159,7 +142,7 @@ This document provides a comprehensive test checklist for verifying the function
 - [ ] Scroll position is restored (if implemented)
 
 ### Exclusion Feedback
-- [ ] "Suspend All" shows toast with exclusion summary
+- [ ] "Suspend Other Tabs" shows toast with exclusion summary
 - [ ] Exclusion reasons displayed: Whitelisted, Pinned, Playing audio, Unsaved forms, Active tab, Already suspended, System pages
 - [ ] Details expandable to see specific tabs
 
@@ -194,7 +177,7 @@ This document provides a comprehensive test checklist for verifying the function
 
 ### Profile Selection
 - [ ] Relaxed (60 min), Balanced (30 min), Aggressive (15 min) profiles work
-- [ ] Custom timing slider available for Pro users
+- [ ] Custom timing slider available for all users
 - [ ] Profile change updates suspension timeout immediately
 
 ### Protection Toggles
@@ -235,7 +218,7 @@ This document provides a comprehensive test checklist for verifying the function
 
 - **Chrome Version**: _________________
 - **OS**: _________________
-- **Extension Version**: 1.0.18
+- **Extension Version**: 1.0.19
 - **Test Date**: _________________
 - **Tester**: _________________
 

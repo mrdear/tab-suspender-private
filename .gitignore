@@ -12,6 +12,7 @@ node_modules/
 
 # Build artifacts
 *.zip
+!release/*.zip
 dist/
 
 # Local development

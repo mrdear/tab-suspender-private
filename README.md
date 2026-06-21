@@ -1,41 +1,37 @@
-# Tab Suspender Pro — The Great Suspender Replacement
+# Tab Suspender — The Great Suspender Replacement
 
 Auto-suspend inactive Chrome tabs to reclaim memory. No tracking. No limits. Free and open source.
 
-[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/ofgncemnlblfnocjbojdhamacfffcpnm)](https://chromewebstore.google.com/detail/tab-suspender-pro-save-me/ofgncemnlblfnocjbojdhamacfffcpnm)
-[![License](https://img.shields.io/badge/license-BSL%201.1-blue.svg)](https://mariadb.com/bsl11/)
 [![GitHub Stars](https://img.shields.io/github/stars/theluckystrike/zovo-tab-suspender-public?style=social)](https://github.com/theluckystrike/zovo-tab-suspender-public)
 
 ## Why This Exists
 
-The Great Suspender was removed from the Chrome Web Store for containing malware. Tab Suspender Pro is a clean, privacy-first replacement built from scratch on Manifest V3.
+The Great Suspender was removed from the Chrome Web Store for containing malware. Tab Suspender is a clean, privacy-first replacement built from scratch on Manifest V3.
 
 ## Key Features
 
 - **Auto-suspend after configurable timeout** — 5 min, 15 min, 30 min, 1 hour, or custom
 - **Whitelist domains** — keep Gmail, Spotify, or any site always active
-- **Suspend / unsuspend all tabs** — one click or keyboard shortcut
+- **Suspend other tabs / restore all tabs** — one click or keyboard shortcut
 - **Memory savings indicator** — see exactly how much RAM you are reclaiming
 - **Smart exclusions** — pinned tabs, tabs playing audio, and the active tab are never suspended
 - **Keyboard shortcuts** — `Alt+S` suspend current, `Alt+Shift+S` suspend others, `Alt+R` restore all
 
 ## Install
 
-**[Get it from the Chrome Web Store](https://chromewebstore.google.com/detail/tab-suspender-pro-save-me/ofgncemnlblfnocjbojdhamacfffcpnm)**
+Use the packaged release in this repository:
 
-Or load from source:
-
-```bash
-git clone https://github.com/theluckystrike/zovo-tab-suspender-public.git
-```
+- Unpacked extension: `release/tab-suspender-1.0.19`
+- Transfer/archive zip: `release/tab-suspender-1.0.19-extension.zip`
 
 1. Open `chrome://extensions`
 2. Enable **Developer mode**
-3. Click **Load unpacked** and select the cloned folder
+3. Click **Load unpacked**
+4. Select `release/tab-suspender-1.0.19`
 
 ## Privacy
 
-Tab Suspender Pro collects **zero data**. No analytics, no telemetry, no external requests. All settings are stored locally on your device.
+Tab Suspender collects **zero data**. No analytics, no telemetry, no external requests. All settings are stored locally on your device.
 
 ## Permissions
 
@@ -55,6 +51,6 @@ Tab Suspender Pro collects **zero data**. No analytics, no telemetry, no externa
 
 Issues and feature requests: [GitHub Issues](https://github.com/theluckystrike/zovo-tab-suspender-public/issues)
 
-## License
+## Free Features
 
-[Business Source License 1.1](https://mariadb.com/bsl11/) — free for personal and non-production use. Commercial use requires a separate license.
+All extension features are free, with no in-app gates or whitelist caps.
