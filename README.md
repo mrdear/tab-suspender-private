@@ -19,15 +19,12 @@ The Great Suspender was removed from the Chrome Web Store for containing malware
 
 ## Install
 
-Use the packaged release in this repository:
-
-- Unpacked extension: `release/tab-suspender-1.0.19`
-- Transfer/archive zip: `release/tab-suspender-1.0.19-extension.zip`
+Download the packaged extension from [GitHub Releases](https://github.com/mrdear/tab-suspender-private/releases/latest), then unzip it.
 
 1. Open `chrome://extensions`
 2. Enable **Developer mode**
 3. Click **Load unpacked**
-4. Select `release/tab-suspender-1.0.19`
+4. Select the unzipped extension folder
 
 ## Privacy
 
