@@ -5,7 +5,7 @@
 1. Open `chrome://extensions/`.
 2. Enable Developer mode.
 3. Click Load unpacked.
-4. Select the extension directory or `release/tab-suspender-1.0.19`.
+4. Select the unpacked extension directory.
 
 ## Install And Shell
 
@@ -26,7 +26,7 @@
 - [ ] Suspend Other Tabs suspends eligible inactive tabs.
 - [ ] Active tab is not suspended.
 - [ ] Whitelisted, pinned, audio, form, and browser pages are excluded according to settings.
-- [ ] Suspended tabs use the sleep favicon.
+- [ ] Suspended tabs keep the original favicon with a sleep marker.
 - [ ] Clicking a suspended page restores the original URL.
 
 ## Restoration

@@ -402,7 +402,7 @@ function exportSettings() {
     const exportData = {
         ...settings,
         exportedAt: new Date().toISOString(),
-        version: '1.0.19'
+        version: '1.0.20'
     };
 
     const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });

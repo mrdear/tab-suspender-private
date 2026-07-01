@@ -57,7 +57,7 @@ async function suspendTabDirect(tabId, url, title, favicon) {
     const params = new URLSearchParams({
       url: url,
       title: title || 'Suspended Tab',
-      favicon: encodeURIComponent(favicon || ''),
+      favicon: favicon || '',
       time: Date.now().toString()
     });
 

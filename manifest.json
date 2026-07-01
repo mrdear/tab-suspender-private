@@ -1,7 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Tab Suspender - Save Memory & Speed Up Chrome",
-  "version": "1.0.19",
+  "version": "1.0.20",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoobNJgenmx7lowykgn3MwUGtFnPb2OnBvZByQ7Ur1sQeaxDMmVzblZ27zCsFyrvYWMGYdS10kwJoQENneUTY8CQr4KMXJb8aPculKz5IPAeVyr7PcBY2uOQe5c5Eor6iJaFjENRXsd0/kU/pS15GSamv70Eg3KtZfq2FcYtuFCbFYCTwsuiNKXCAHw8Xq8O+mtfRr9ZhtsgfTchzpuG+h7oQnmYToUwa3j4opreKdyFghFb8HetzxmZCw3RnbIO2VJ0yZh+rPeeQNkDNZ/zdsaXs817aAoUMZvLLt+irJxUkHRg20xYxYP/oTCXMasvFDNvoNOq/JrYxJlGv2qhENwIDAQAB",
   "description": "The trusted tab suspender that saves memory and speeds up Chrome. Unlimited free. No limits. No tracking.",
   "minimum_chrome_version": "88",
   "action": {

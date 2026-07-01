@@ -361,22 +361,27 @@ function createTabItem(tab) {
     item.className = `tab-item ${tab.status}`;
     item.dataset.tabId = tab.id;
 
-    const favicon = tab.status === 'suspended' ? SLEEP_FAVICON_URL : (tab.favIconUrl || '');
+    const isSuspended = tab.status === 'suspended';
+    const favicon = getDisplayFavicon(tab);
     const domain = getDomain(tab.url);
+    const faviconClass = !favicon ? 'placeholder' : '';
 
     item.innerHTML = `
-    <img
-      src="${favicon}"
-      class="tab-favicon ${!favicon ? 'placeholder' : ''}"
-      alt=""
-    >
+    <span class="tab-favicon-wrap ${isSuspended ? 'suspended' : ''}">
+      <img
+        src="${escapeHtml(favicon)}"
+        class="tab-favicon ${faviconClass}"
+        alt=""
+      >
+      ${isSuspended ? '<span class="tab-favicon-badge" aria-hidden="true">Z</span>' : ''}
+    </span>
     <div class="tab-info">
       <div class="tab-title">${escapeHtml(tab.title || 'Untitled')}</div>
       <div class="tab-url">${escapeHtml(domain)}</div>
     </div>
     <span class="tab-status ${tab.status}">${tab.status}</span>
-    <button class="tab-action" data-action="${tab.status === 'suspended' ? 'restore' : 'suspend'}">
-      ${tab.status === 'suspended' ? 'Restore' : 'Suspend'}
+    <button class="tab-action" data-action="${isSuspended ? 'restore' : 'suspend'}">
+      ${isSuspended ? 'Restore' : 'Suspend'}
     </button>
   `;
 
@@ -428,6 +433,45 @@ function createTabItem(tab) {
     });
 
     return item;
+}
+
+function getDisplayFavicon(tab) {
+    if (tab.status === 'suspended') {
+        return getOriginalFaviconFromSuspendedUrl(tab.url) ||
+            getSafeFaviconSource(tab.favIconUrl || '') ||
+            SLEEP_FAVICON_URL;
+    }
+
+    return getSafeFaviconSource(tab.favIconUrl || '');
+}
+
+function getOriginalFaviconFromSuspendedUrl(url) {
+    try {
+        if (!url || !url.includes('suspended.html')) return '';
+        const parsedUrl = new URL(url);
+        return getSafeFaviconSource(parsedUrl.searchParams.get('favicon') || '');
+    } catch {
+        return '';
+    }
+}
+
+function getSafeFaviconSource(value) {
+    const trimmed = String(value || '').trim();
+    if (!trimmed) return '';
+
+    const candidates = [trimmed];
+    try {
+        const decoded = decodeURIComponent(trimmed);
+        if (decoded !== trimmed) candidates.push(decoded);
+    } catch {
+        // Keep the original value if it was not URI-encoded.
+    }
+
+    return candidates.find(isAllowedFaviconSource) || '';
+}
+
+function isAllowedFaviconSource(source) {
+    return /^(https?:\/\/|data:image\/|chrome-extension:\/\/|blob:|chrome:\/\/favicon)/i.test(source);
 }
 
 // Get whitelist settings from storage

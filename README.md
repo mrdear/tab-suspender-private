@@ -26,6 +26,18 @@ Download the packaged extension from [GitHub Releases](https://github.com/mrdear
 3. Click **Load unpacked**
 4. Select the unzipped extension folder
 
+## Manual Updates
+
+Version `1.0.20` adds a fixed extension ID:
+
+```text
+dhipcaijoipciglemoefjdlidjmjpnki
+```
+
+When upgrading from an older build without the fixed manifest key, Chrome treats `1.0.20` as a different extension once. Export settings from the old extension first, load `1.0.20`, then import the settings.
+
+After `1.0.20`, keep the manifest `key` unchanged. Future GitHub Release builds can be installed by replacing the files in your unpacked extension folder and clicking **Reload** on `chrome://extensions`; settings will stay attached to the same extension ID.
+
 ## Privacy
 
 Tab Suspender collects **zero data**. No analytics, no telemetry, no external requests. All settings are stored locally on your device.

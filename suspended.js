@@ -9,9 +9,10 @@ const originalUrl = params.get('url');
 const title = params.get('title') || 'Suspended Tab';
 // Note: URLSearchParams.get() already decodes, so no need for decodeURIComponent
 const faviconParam = params.get('favicon');
-const favicon = faviconParam || '';
+const favicon = getSafeFaviconSource(faviconParam || '');
 const suspendedAt = parseInt(params.get('time')) || Date.now();
 const SLEEP_FAVICON_URL = chrome.runtime.getURL('icons/sleep.svg');
+const FAVICON_CANVAS_SIZE = 64;
 
 // DOM Elements
 const pageTitle = document.getElementById('pageTitle');
@@ -22,13 +23,18 @@ const tabUrl = document.getElementById('tabUrl');
 const memorySaved = document.getElementById('memorySaved');
 const timeSuspended = document.getElementById('timeSuspended');
 
+let initialized = false;
+
 // Initialize page
 function init() {
+    if (initialized) return;
+    initialized = true;
+
     // Set page title
     pageTitle.textContent = `${title} (Suspended)`;
 
-    // Keep the browser tab favicon consistent for all suspended tabs.
-    pageFavicon.href = SLEEP_FAVICON_URL;
+    // Show the original favicon with a small sleep marker in the browser tab.
+    setBrowserTabFavicon();
 
     // Show the original site's favicon inside the suspended page when available.
     if (favicon) {
@@ -58,6 +64,117 @@ function init() {
 
     // Set up restoration handlers
     setupRestoreHandlers();
+}
+
+async function setBrowserTabFavicon() {
+    if (!favicon) {
+        setFallbackBrowserTabFavicon();
+        return;
+    }
+
+    try {
+        const composedFavicon = await createSuspendedFavicon(favicon);
+        pageFavicon.type = 'image/png';
+        pageFavicon.href = composedFavicon;
+    } catch (error) {
+        console.warn('Failed to compose suspended favicon:', error);
+        setFallbackBrowserTabFavicon();
+    }
+}
+
+function setFallbackBrowserTabFavicon() {
+    pageFavicon.type = 'image/svg+xml';
+    pageFavicon.href = SLEEP_FAVICON_URL;
+}
+
+async function createSuspendedFavicon(originalFavicon) {
+    const originalImage = await loadFaviconImage(originalFavicon);
+    const canvas = document.createElement('canvas');
+    canvas.width = FAVICON_CANVAS_SIZE;
+    canvas.height = FAVICON_CANVAS_SIZE;
+
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, FAVICON_CANVAS_SIZE, FAVICON_CANVAS_SIZE);
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
+
+    drawImageContained(ctx, originalImage, 3, 3, 44, 44);
+    drawSleepMarker(ctx);
+
+    return canvas.toDataURL('image/png');
+}
+
+async function loadFaviconImage(source) {
+    let imageSource = source;
+
+    if (/^https?:\/\//i.test(source)) {
+        const response = await fetch(source, {
+            credentials: 'omit',
+            cache: 'force-cache'
+        });
+
+        if (!response.ok) {
+            throw new Error(`Failed to fetch favicon: ${response.status}`);
+        }
+
+        const blob = await response.blob();
+        imageSource = URL.createObjectURL(blob);
+    }
+
+    const image = new Image();
+    image.decoding = 'async';
+    image.src = imageSource;
+
+    await new Promise((resolve, reject) => {
+        image.onload = resolve;
+        image.onerror = () => reject(new Error('Failed to load favicon image'));
+    });
+
+    return image;
+}
+
+function drawImageContained(ctx, image, x, y, width, height) {
+    const naturalWidth = image.naturalWidth || width;
+    const naturalHeight = image.naturalHeight || height;
+    const scale = Math.min(width / naturalWidth, height / naturalHeight);
+    const drawWidth = naturalWidth * scale;
+    const drawHeight = naturalHeight * scale;
+    const drawX = x + (width - drawWidth) / 2;
+    const drawY = y + (height - drawHeight) / 2;
+
+    ctx.drawImage(image, drawX, drawY, drawWidth, drawHeight);
+}
+
+function drawSleepMarker(ctx) {
+    ctx.save();
+    ctx.font = '700 24px Arial, Helvetica, sans-serif';
+    ctx.textBaseline = 'alphabetic';
+    ctx.lineJoin = 'round';
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.95)';
+    ctx.lineWidth = 6;
+    ctx.strokeText('Zz', 29, 56);
+    ctx.fillStyle = '#7c3aed';
+    ctx.fillText('Zz', 29, 56);
+    ctx.restore();
+}
+
+function getSafeFaviconSource(value) {
+    const trimmed = String(value || '').trim();
+    if (!trimmed) return '';
+
+    const candidates = [trimmed];
+    try {
+        const decoded = decodeURIComponent(trimmed);
+        if (decoded !== trimmed) candidates.push(decoded);
+    } catch {
+        // Keep the original value if it was not URI-encoded.
+    }
+
+    return candidates.find(isAllowedFaviconSource) || '';
+}
+
+function isAllowedFaviconSource(source) {
+    return /^(https?:\/\/|data:image\/|chrome-extension:\/\/|blob:|chrome:\/\/favicon)/i.test(source);
 }
 
 // Get domain from URL

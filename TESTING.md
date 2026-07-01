@@ -218,7 +218,7 @@ This document provides a comprehensive test checklist for verifying the function
 
 - **Chrome Version**: _________________
 - **OS**: _________________
-- **Extension Version**: 1.0.19
+- **Extension Version**: 1.0.20
 - **Test Date**: _________________
 - **Tester**: _________________
 
